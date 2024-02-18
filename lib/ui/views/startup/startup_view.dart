@@ -14,31 +14,36 @@ class StartupView extends StackedView<StartupViewModel> {
     StartupViewModel viewModel,
     Widget? child,
   ) {
-    return const Scaffold(
+    return  Scaffold(
       body: Center(
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              'STACKED',
-              style: TextStyle(fontSize: 40, fontWeight: FontWeight.w900),
-            ),
-            Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text('Loading ...', style: TextStyle(fontSize: 16)),
-                horizontalSpaceSmall,
-                SizedBox(
-                  width: 16,
-                  height: 16,
-                  child: CircularProgressIndicator(
-                    color: Colors.black,
-                    strokeWidth: 6,
-                  ),
-                )
-              ],
-            ),
-          ],
+        child: Container(
+          width: screenWidth(context),
+          height: screenHeight(context),
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                begin: Alignment.topRight,
+                end: Alignment.bottomLeft,
+                colors: [
+                  Colors.deepPurple,
+                  Colors.blue,
+                  Colors.blueAccent,
+                  Colors.deepPurple,
+                ],
+              )
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                width: screenWidth(context)/2,
+                  height: 150,
+                  child: Image(image:AssetImage('assets/coins.png')),),
+              verticalSpaceMedium,
+              Text("BITIFY",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.white),),
+              verticalSpaceMedium,
+              Text("The most trusted and secure wallet",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.white),)
+            ],
+          ),
         ),
       ),
     );
@@ -54,3 +59,25 @@ class StartupView extends StackedView<StartupViewModel> {
   void onViewModelReady(StartupViewModel viewModel) => SchedulerBinding.instance
       .addPostFrameCallback((timeStamp) => viewModel.runStartupLogic());
 }
+
+
+
+/*  Text(
+  'STACKED',
+  style: TextStyle(fontSize: 40, fontWeight: FontWeight.w900),
+  ),
+  Row(
+  mainAxisSize: MainAxisSize.min,
+  children: [
+  Text('Loading ...', style: TextStyle(fontSize: 16)),
+  horizontalSpaceSmall,
+  SizedBox(
+  width: 16,
+  height: 16,
+  child: CircularProgressIndicator(
+  color: Colors.black,
+  strokeWidth: 6,
+  ),
+  )
+  ],
+  ),*/
