@@ -89,6 +89,7 @@ class HomeView extends StackedView<HomeViewModel> {
 
                         ),
                         Container(
+
                           height: 62,
                           color: kcPurpleDark,
                         )
