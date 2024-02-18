@@ -16,63 +16,89 @@ class HomeView extends StackedView<HomeViewModel> {
   ) {
     return Scaffold(
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 25.0),
-          child: Center(
+        child: Center(
+          child: Container(
+            height: screenHeight(context),
+            width: screenWidth(context),
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topRight,
+                    end: Alignment.bottomLeft,
+                    colors: [
+                      kcCard,
+                      kcPrimaryColorDark,
+                      kcPrimaryColor,
+                      Colors.deepPurple,
+                    ],
+                  )
+              ),
             child: Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+                Padding(
+                  padding: const EdgeInsets.all(20.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Row(
+                        children: [
+                          SizedBox( width: 45,height: 45,child: CircleAvatar(child: Icon(Icons.person),backgroundColor: Colors.purple,)),
+                          horizontalSpaceSmall,
+                          Text('WELCOME BACK!',style: TextStyle(fontSize: 15,fontWeight: FontWeight.bold,color: Colors.purple),),
+                        ],
+                      ),
 
-                verticalSpaceLarge,
-                Column(
-                  children: [
-                    const Text(
-                      'Hello, Traders!',
-                      style: TextStyle(
-                        fontSize: 35,
-                        fontWeight: FontWeight.w900,
-                      ),
-                    ),
-                    verticalSpaceMedium,
-                    MaterialButton(
-                      color: Colors.black,
-                      onPressed: viewModel.incrementCounter,
-                      child: Text(
-                        viewModel.counterLabel,
-                        style: const TextStyle(color: Colors.white),
-                      ),
-                    ),
-                  ],
+                      Icon(Icons.notifications,color: kcPurpleDark,)
+                    ],
+                  ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    MaterialButton(
-                      color: kcDarkGreyColor,
-                      onPressed: viewModel.showDialog,
-                      child: const Text(
-                        'Show Dialog',
-                        style: TextStyle(
-                          color: Colors.white,
+                Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.all(Radius.circular(8))
+                  ),
+                  height: 170,
+                  width: 300,
+                  child: Card(
+                    color: kcCard,
+                    child: Column(
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                              gradient: LinearGradient(
+                                begin: Alignment.topLeft,
+                                end: Alignment.bottomRight,
+                                colors: [
+                                  Colors.deepPurple,
+                                  Colors.blue,
+                                  Colors.deepPurple,
+                                ],
+                              )
+                          ),
+                          height: 100,
+                          child: Column(
+                            children: [
+                              Row(
+                                children: [
+                                  Text("Total Balance",style: TextStyle(fontSize: 15,color: Colors.white),),
+
+                                ],
+                              ),
+                              Text('\$1212.25',style: TextStyle(fontSize: 15,color: Colors.white),)
+
+                            ],
+                          ),
+
                         ),
-                      ),
+                        Container(
+                          height: 62,
+                          color: kcPurpleDark,
+                        )
+                      ],
                     ),
-                    MaterialButton(
-                      color: kcDarkGreyColor,
-                      onPressed: viewModel.showBottomSheet,
-                      child: const Text(
-                        'Show Bottom Sheet',
-                        style: TextStyle(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  ],
+                  ),
                 )
               ],
             ),
-          ),
+          )
         ),
       ),
     );
