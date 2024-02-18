@@ -23,6 +23,7 @@ class HomeView extends StackedView<HomeViewModel> {
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
+
                 verticalSpaceLarge,
                 Column(
                   children: [
