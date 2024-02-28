@@ -74,17 +74,33 @@ class HomeView extends StackedView<HomeViewModel> {
                               )
                           ),
                           height: 100,
-                          child: Column(
-                            children: [
-                              Row(
-                                children: [
-                                  Text("Total Balance",style: TextStyle(fontSize: 15,color: Colors.white),),
-
-                                ],
-                              ),
-                              Text('\$1212.25',style: TextStyle(fontSize: 15,color: Colors.white),)
-
-                            ],
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text("Total Balance",style: TextStyle(fontSize: 15,color: Colors.black54),),
+                                    verticalSpaceSmall,
+                                    Text('\$1212.25',style: TextStyle(fontSize: 15,color: Colors.white),)
+                                  ],
+                                ),
+                                Container(
+                                  width: 60,
+                                  height: 33,
+                                  decoration: BoxDecoration(
+                                    color: kcMediumGrey,
+                                    borderRadius: BorderRadius.all(Radius.circular(22))
+                                  ),
+                                  child: Row(children: [
+                                    Icon(Icons.arrow_drop_up,color: kcGreen,),
+                                    Text("+15%",style: TextStyle(color: Colors.white),)
+                                  ],),
+                                )
+                              ],
+                            ),
                           ),
 
                         ),

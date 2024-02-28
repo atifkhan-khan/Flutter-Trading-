@@ -37,7 +37,7 @@ class StartupView extends StackedView<StartupViewModel> {
               Container(
                 width: screenWidth(context)/2,
                   height: 150,
-                  child: Image(image:AssetImage('assets/coins.png')),),
+                  child: Image.asset("Assets/images/coins.png"),),
               verticalSpaceMedium,
               Text("BITIFY",style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold,color: Colors.white),),
               verticalSpaceMedium,
